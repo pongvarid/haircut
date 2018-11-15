@@ -1,7 +1,7 @@
 <!----------Make By YourName---------------->
  <template>
 <div>
-    <h1>Hello</h1>
+    <h1>Hello อีแฮมหน้าเฮี่ย</h1>
     </div>
 </template>
 

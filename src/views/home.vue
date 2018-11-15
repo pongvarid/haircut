@@ -28,7 +28,7 @@
     
             <h1>Hello อีแฮมหน้าเฮี่ย</h1>
     
-            <v-btn class="box-brown shadow" dark round>ฆ่าอีแฮม</v-btn>
+            <v-btn class="box-red shadow" dark round>ฆ่าอีแฮม</v-btn>
     
         </v-container>
     </div>

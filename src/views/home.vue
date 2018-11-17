@@ -12,7 +12,7 @@
     
             <v-toolbar-items class="hidden-sm-and-down">
     
-                <v-btn flat>Link One</v-btn>
+                <v-btn @click="$router.push('/xx')" flat>Link One</v-btn>
     
                 <v-btn flat>Link Two</v-btn>
     
@@ -28,7 +28,7 @@
     
             <h1>Hello อีแฮมหน้าเฮี่ย</h1>
     
-            <v-btn @click="$router.push('/xx')" class="box-red shadow" dark round>ฆ่าอีแฮม</v-btn>
+            <v-btn class="box-red shadow" dark round>ฆ่าอีแฮม</v-btn>
     
         </v-container>
     </div>

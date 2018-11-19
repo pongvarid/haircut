@@ -1,7 +1,7 @@
 <!----------Make By YourName---------------->
  <template>
-<div>
-    <v-toolbar class="box-blue">   
+    <div>
+        <v-toolbar class="box-blue">   
     
             <v-toolbar-side-icon></v-toolbar-side-icon>
     

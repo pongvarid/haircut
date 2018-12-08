@@ -7,6 +7,10 @@ import router from './router/'
 import store from './store/'
 import "@/assets/custom.css"
 import 'animate.css'
+import AtComponents from 'at-ui'
+import 'at-ui-style' 
+Vue.use(AtComponents)
+
 Vue.config.productionTip = false
 
 

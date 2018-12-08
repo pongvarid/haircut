@@ -1,27 +1,29 @@
 <!----------Make By YourName---------------->
  <template>
 <div>
-    <v-toolbar class="box-blue">   
-    
-            <v-toolbar-side-icon></v-toolbar-side-icon>
-    
-            <v-toolbar-title>Title</v-toolbar-title>
-    
-            <v-spacer></v-spacer>
-    
-            <v-toolbar-items class="hidden-sm-and-down">
-    
-                <v-btn flat>Link One</v-btn>
-    
-                <v-btn flat>Link Two</v-btn>
-    
-                <v-btn flat>Link Three</v-btn>
-    
-            </v-toolbar-items>
-    
-        </v-toolbar>
-
-    </div>
+        <a @click="$router.push('/')" class="icon icon-chevron-left"></a><br>
+        <at-input v-model="inputValue4" placeholder="ค้นหา ร้านตัดผม" append-button>
+            <template slot="append">
+                <i class="icon icon-search"></i>
+            </template>
+        </at-input><br>
+        <at-button style="width: 300px;" :body-style="{ padding: 0 }">
+        <div>
+            <img style="width: 100%" src="https://misc.aotu.io/koppthe/at-ui/cover.jpg">
+            <div style="padding: 14px;">
+            <p>barbername</p>
+            </div>
+        </div>
+        </at-button><br><br>
+        <at-button style="width: 300px;" :body-style="{ padding: 0 }">
+            <div>
+            <img style="width: 100%" src="https://misc.aotu.io/koppthe/at-ui/cover.jpg">
+            <div style="padding: 14px;">
+            <p>ร้านตัดผม</p>
+            </div>
+        </div>
+        </at-button>
+    </div> 
 </template>
 
     <script>

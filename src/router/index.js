@@ -16,10 +16,31 @@ export default new Router({
             component: loadView('home')
         },
         {
-            path: '/xx',
-            name: 'xx',
-            component: loadView('xx')
+            path: '/barregis',
+            name: 'barregis',
+            component: loadView('barregis')
         },
+        {
+            path: '/barlogin',
+            name: 'barlogin',
+            component: loadView('barlogin')
+        },
+        {
+            path: '/listbar',
+            name: 'listbar',
+            component: loadView('listbar')
+        },
+        {
+            path: '/queue',
+            name: 'queue',
+            component: loadView('queue')
+        },
+        {
+            path: '/bardetail',
+            name: 'bardetail',
+            component: loadView('bardetail')
+        },
+        
       
     ]
     

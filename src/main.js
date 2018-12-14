@@ -10,7 +10,8 @@ import 'animate.css'
 import AtComponents from 'at-ui'
 import 'at-ui-style' 
 Vue.use(AtComponents)
-
+import ImageUploader from 'vue-image-upload-resize'
+Vue.use(ImageUploader);
 Vue.config.productionTip = false
 
 

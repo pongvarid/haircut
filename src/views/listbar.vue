@@ -1,13 +1,15 @@
 <!----------Make By YourName---------------->
  <template>
 <div>
-        <a @click="$router.push('/')" class="icon icon-chevron-left"></a><br>
+        <a style="width: 100px" @click="$router.push('/')" class="icon icon-chevron-left">
+                <img style="width: 60px" src="../assets/logo.png">
+        </a><br>
         <at-input v-model="inputValue4" placeholder="ค้นหา ร้านตัดผม" append-button>
             <template slot="append">
                 <i class="icon icon-search"></i>
             </template>
         </at-input><br>
-        <at-button style="width: 300px;" :body-style="{ padding: 0 }">
+        <at-button  @click="$router.push('/queue')" style="width: 300px;" :body-style="{ padding: 0 }">
         <div>
             <img style="width: 100%" src="https://misc.aotu.io/koppthe/at-ui/cover.jpg">
             <div style="padding: 14px;">

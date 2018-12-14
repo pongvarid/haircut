@@ -24,10 +24,10 @@
     </at-select><br><br>  
     เวลาทำต่อหัว :
     <at-input-group v-model="inputprice">
-        <at-input v-model="inputValue" placeholder="ชาย" style="width:50px"></at-input> นาที
-        <at-input v-model="inputValue" placeholder="ราคา" style="width:50px"></at-input> บาท<br>
-        <at-input v-model="inputValue" placeholder="หญิง" style="width:50px"></at-input> นาที
-        <at-input v-model="inputValue" placeholder="ราคา" style="width:50px"></at-input> บาท<br>
+        <at-input v-model="inputValue" placeholder="ชาย" style="width:60px"></at-input> นาที
+        <at-input v-model="inputValue" placeholder="ราคา" style="width:60px"></at-input> บาท<br>
+        <at-input v-model="inputValue" placeholder="หญิง" style="width:60px"></at-input> นาที
+        <at-input v-model="inputValue" placeholder="ราคา" style="width:60px"></at-input> บาท<br>
     </at-input-group>
     <div class="row">
         <at-button type="primary" icon="icon-plus"></at-button>

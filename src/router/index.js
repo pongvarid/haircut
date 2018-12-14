@@ -40,6 +40,11 @@ export default new Router({
             name: 'bardetail',
             component: loadView('bardetail')
         },
+        {
+            path: '/queue',
+            name: 'queue',
+            component: loadView('queue')
+        },
         
       
     ]

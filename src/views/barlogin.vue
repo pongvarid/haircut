@@ -3,7 +3,7 @@
  <div>
     <br><a @click="$router.push('/')" class="icon icon-chevron-left"></a>
     <label>ลงชื่อเข้าใช้</label><br><br>
-    <at-input  v-model="inputValue" placeholder="ชื่อผู้ใช้ หรือ อีเมล์"></at-input><br>
+    <at-input  v-model="inputValue" placeholder="ชื่อผู้ใช้"></at-input><br>
     <at-input v-model="password" type="password" placeholder="รหัสผ่าน"></at-input><br>
     <at-button class="box-brown shadow">ล็อกอิน</at-button><br><br>
     <at-button  @click="$router.push('/barregis')" class="box-black shadow" dark round>สมัครสมาชิก</at-button><br>

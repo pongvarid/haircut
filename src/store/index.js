@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import pathify from 'vuex-pathify';
 import loading from './loading';
 import error from "./error";
-import user from './user/user';
+import user from './user';
 
 Vue.use(Vuex)
 

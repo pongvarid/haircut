@@ -13,10 +13,10 @@
                 <h1>ร้านตัดผม</h1>
             </div>
         </button>
-        
+
+         
+       
     </div>    
  </template>
  
-<style>
-    
-</style>
+ 

@@ -32,9 +32,20 @@
     <div class="row">
         <at-button type="primary" icon="icon-plus"></at-button>
     </div><br>
+    รูปโปรไฟล์ :<image-uploader
+    :debug="1"
+    :maxWidth="512"
+    :quality="0.5"
+    :autoRotate=true
+    outputFormat="blob"
+    :preview=false
+    accept="image/*"
+    doNotResize="['gif', 'svg']"
+    ></image-uploader><br>
+    
 
-    <at-button class="box-brown shadow">สมัครสมาชิก</at-button><br><br>
-    <at-button  @click="$router.push('/barlogin')" class="box shadow">ลงชื่อเข้าใช้</at-button><br>
+    <at-button class="box-brown shadow">ลงทะเบียน</at-button><br><br>
+    <at-button  @click="$router.push('/barlogin')" class="box shadow">ยกเลิก</at-button><br>
     
     </div>
 </template>

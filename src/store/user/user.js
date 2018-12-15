@@ -18,7 +18,7 @@ const mutations = {
 const actions = {
 
 async getData() {
-let load = axios.get('http://192.168.1.6:222/api/user')
+let load = axios.get('/api/user')
     .then((r) => {
         state.userData = r.data;
         console.log(r.data);
@@ -28,7 +28,7 @@ let load = axios.get('http://192.168.1.6:222/api/user')
 });
     },
 async storeData(context, params) {
-    let load = axios.post('http://192.168.1.6:222/api/user', params)
+    let load = axios.post('/api/user', params)
     .then((r) => {
      
         alert('Save Data Success');
@@ -38,7 +38,7 @@ async storeData(context, params) {
 },
 
 async updateData(context, params) {
-    let load = axios.put('http://192.168.1.6:222/api/user/' + params.id, params)
+    let load = axios.put('/api/user/' + params.id, params)
         .then((r) => {
         alert('Update Data Success');
     }).catch((e) => {
@@ -47,7 +47,7 @@ async updateData(context, params) {
 },
 
 async destroyData(context, params) {
-    let load = axios.delete('http://192.168.1.6:222/api/user/' + params.id)
+    let load = axios.delete('/api/user/' + params.id)
         .then((r) => {
         alert('Delete Data Success');
     }).catch((e) => {

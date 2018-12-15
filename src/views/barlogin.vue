@@ -3,13 +3,18 @@
  <div>
     <br><a @click="$router.push('/')" class="icon icon-chevron-left"></a>
     <label>ลงชื่อเข้าใช้</label><br><br>
+
     <form v-on:submit.prevent="login()">
         <input v-model="username" type="text" placeholder="ชื่อผู้ใช้" class="at-input__original" required /><br>
         <input v-model="password" type="password" placeholder="รหัสผ่าน" class="at-input__original" required /><br>
         <button type="submit" class=" box-brown shadow pd-6 wh circle">ล็อกอิน</button>
     </form><br>
-    
+
     <at-button  @click="$router.push('/barregis')" class="box-black shadow" dark round>สมัครสมาชิก</at-button><br>
+
+    <!--ค่อยลบ--><br><at-button @click="$router.push('/Datamanagement')" class="box-black shadow" dark round>จัดการร้าน</at-button><br>
+    <!--ค่อยลบ--><br><at-button @click="$router.push('/customerQueue')" class="box shadow" dark round>คิวลูกค้า</at-button><br>
+    <!--ค่อยลบ--><br><at-button @click="$router.push('/account')" class="box shadow" drak round>การตั้งค่าบัญชีผู้ใช้</at-button><br>
    
      </div>
      

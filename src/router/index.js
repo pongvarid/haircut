@@ -31,11 +31,6 @@ export default new Router({
             component: loadView('listbar')
         },
         {
-            path: '/queue',
-            name: 'queue',
-            component: loadView('queue')
-        },
-        {
             path: '/bardetail',
             name: 'bardetail',
             component: loadView('bardetail')
@@ -44,6 +39,26 @@ export default new Router({
             path: '/queue',
             name: 'queue',
             component: loadView('queue')
+        },
+        {
+            path: '/Datamanagement',
+            name: 'Datamanagement',
+            component: loadView('Datamanagement')
+        },
+        {
+            path: '/DataBarbershop',
+            name: 'DataBarbershop',
+            component: loadView('DataBarbershop')
+        },
+        {
+            path: '/account',
+            name: 'account',
+            component: loadView('account')
+        },
+        {
+            path: '/customerQueue',
+            name: 'customerQueue',
+            component: loadView('customerQueue')
         },
         
       

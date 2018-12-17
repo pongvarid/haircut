@@ -41,11 +41,6 @@ export default new Router({
             component: loadView('queue')
         },
         {
-            path: '/Datamanagement',
-            name: 'Datamanagement',
-            component: loadView('Datamanagement')
-        },
-        {
             path: '/DataBarbershop',
             name: 'DataBarbershop',
             component: loadView('DataBarbershop')
@@ -56,10 +51,11 @@ export default new Router({
             component: loadView('account')
         },
         {
-            path: '/customerQueue',
-            name: 'customerQueue',
-            component: loadView('customerQueue')
+            path: '/EditProfile',
+            name: 'EditProfile',
+            component: loadView('EditProfile')
         },
+        
         
       
     ]

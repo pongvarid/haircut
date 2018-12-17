@@ -11,9 +11,8 @@
     </form><br>
 
     <at-button  @click="$router.push('/barregis')" class="box-black shadow" dark round>สมัครสมาชิก</at-button><br>
-
-    <!--ค่อยลบ--><br><at-button @click="$router.push('/Datamanagement')" class="box-black shadow" dark round>จัดการร้าน</at-button><br>
-    <!--ค่อยลบ--><br><at-button @click="$router.push('/customerQueue')" class="box shadow" dark round>คิวลูกค้า</at-button><br>
+    
+    <!--ค่อยลบ--><br><at-button @click="$router.push('/DataBarbershop')" class="box shadow" dark round>คิวลูกค้า</at-button><br>
     <!--ค่อยลบ--><br><at-button @click="$router.push('/account')" class="box shadow" drak round>การตั้งค่าบัญชีผู้ใช้</at-button><br>
    
      </div>

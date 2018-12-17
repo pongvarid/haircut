@@ -17,6 +17,14 @@
             </div>
         </div>
         </at-button><br><br>
+        <at-button style="width: 300px;" :body-style="{ padding: 0 }">
+            <div>
+            <img style="width: 100%" src="https://misc.aotu.io/koppthe/at-ui/cover.jpg">
+            <div style="padding: 14px;">
+            <p>ร้านตัดผม</p>
+            </div>
+        </div>
+        </at-button>
     </div> 
 </template>
 

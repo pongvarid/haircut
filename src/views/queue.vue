@@ -1,16 +1,12 @@
 <!----------Make By YourName---------------->
  <template>
-    <div>
-        <br><a @click="$router.push('/listbar')" class="icon icon-chevron-left"></a>
-        <form v-on:submit.prevent="queue()">
-        ชื่อ :  <input v-model="form.customer_name" placeholder="ชื่อ" class="at-input__original" style="width:100px" required><br>
-        เพศ : <input type="radio" v-model="form.customer_sex" class="at-radio" value="ชาย" required>ชาย
-              <input type="radio" v-model="form.customer_sex" class="at-radio" value="หญิง" required>หญิง 
-              <br><br>   
-        เบอร์โทร : <input v-model="form.customer_number" placeholder="เบอร์โทร" class="at-input__original" style="width:100px" required><br>
-        <button v-if="form.customer_sex!=null" type="submit" class=" box-brown shadow pd-6 wh circle">จองคิว</button>
-        
-        </form>
+    <div><br>
+    <at-input v-model="inputValue" placeholder="ชื่อ" style="width:100px"></at-input><br>
+    <at-radio-group v-model="gender">
+        <at-radio label="M">ชาย</at-radio>
+        <at-radio label="F">หญิง</at-radio>
+    </at-radio-group><br><br>
+    <at-input v-model="inputValue" placeholder="เบอร์โทร" style="width:100px"></at-input><br>
     </div>
 </template>
 
@@ -28,7 +24,7 @@ props:{
     /*-------------------------DataVarible---------------------------------------*/
     data() {
     return {
-        form:{},
+
         };
     }, 
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -46,10 +42,6 @@ props:{
 },
     /*-------------------------Methods------------------------------------------*/
 methods:{
-    queue:async function(){
-        this.$router.push('/booking');
-    },
-    
     /******* Methods default run ******/
     load:async function(){
 }

@@ -40,7 +40,6 @@ export default new Router({
             name: 'queue',
             component: loadView('queue')
         },
-
         {
             path: '/DataBarbershop',
             name: 'DataBarbershop',
@@ -51,16 +50,10 @@ export default new Router({
             name: 'account',
             component: loadView('account')
         },
-
         {
             path: '/EditProfile',
             name: 'EditProfile',
             component: loadView('EditProfile')
-        },
-        {
-            path: '/booking',
-            name: 'booking_detail',
-            component: loadView('booking_detail')
         },
         
         

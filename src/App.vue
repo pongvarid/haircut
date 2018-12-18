@@ -8,7 +8,7 @@
 <script>
     import axios from "@/axios"
     import Loading from "./components/Share/Loading";
-
+    	import { get } from "vuex-pathify"; 
     export default {
         name: "App",
         components: {Loading},
@@ -22,8 +22,14 @@
                 await this.$store.dispatch("loading/dismissLoad")
             }
         },
+         computed:{
+             user:get('login/user')
+        },
         async mounted() {
-  
+
+            if(this.user){
+                await this.$router.replace('/DataBarbershop');
+            }
         },
         created() {
 

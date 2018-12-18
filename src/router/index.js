@@ -16,6 +16,11 @@ export default new Router({
             component: loadView('home')
         },
         {
+            path: '/logout',
+            name: 'logout',
+            component: loadView('logout')
+        },
+        {
             path: '/barregis',
             name: 'barregis',
             component: loadView('barregis')
@@ -55,6 +60,12 @@ export default new Router({
             name: 'EditProfile',
             component: loadView('EditProfile')
         },
+        {
+            path: '/queue_view',
+            name: 'queue_view',
+            component: loadView('queue_view')
+        },
+        
         
         
       

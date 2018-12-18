@@ -1,42 +1,37 @@
-import axios from "@/axios"
-
+import axios from '@/axios'
+import _ from 'lodash'
 const state = {
-    loginForm : {}
+user:JSON.parse(localStorage.getItem("user"))
+}
+const getters = {
+
 }
 
-const getters = {}
-
 const mutations = {
-    resetLoginForm : function(state){
-        state.loginForm = {}
-    }
+
 }
 
 const actions = {
-
-    login: async ({commit,state}) => {
-        window.console.log("user/login")
-        let result = await axios.post('/api/v1/farmer/login', state.loginForm)
-            .then((r) => {
-                window.console.log("login/login", r.data)
-                let storage = window.localStorage;
-                storage.setItem("token", r.data.token)
-                axios.defaults.headers.common['Authorization'] = `Bearer ${storage.getItem('token')}`;
-                window.console.log('login/login', 'finish')
-                return r.data;
-            }).catch((error) => {
-                window.console.error(error.stack)
-            })
-        commit("resetLoginForm")
-        return result
-    },
-    logout : async (context) =>{
-        localStorage.removeItem("token")
-        context.dispatch("farmer/clearState",{},{root:true})
+    async checklogin(context, params) {
+        let check = false;
+        let user = null;
+        let load = await axios.get('/api/login?username='+ params.username+'&password='+params.password)
+        .then((r) => { 
+             user =  r.data;
+             check = true;
+        }).catch((e) => { 
+           // return e
+        });
+        if(user){
+            localStorage.setItem("user", JSON.stringify(user) );
+            check = true;
+        }else{
+            alert('Username or Password is wrong!!!!');
+        }
+        return check;
     }
 
 }
-
 
 export default {
     namespaced: true,
@@ -44,4 +39,4 @@ export default {
     getters,
     mutations,
     actions
-}
+    }

@@ -1,23 +1,18 @@
 <!----------Make By YourName---------------->
  <template>
-<div>
-        <a style="width: 100px" @click="$router.push('/')" class="icon icon-chevron-left mrt-20">
-                <img style="width: 60px" class="mrt-20" src="../assets/logo.png">
-        </a><br>
-       
-        <center><at-button class="mrt-20 box-brown shadow " @click="$router.push('/queue')" style="width: 300px;" :body-style="{ padding: 0 }">
-        <div>
-            <img style="width: 100%" src="../assets/maxresdefault.jpg">
-            <div style="padding: 14px;">
-            <p class="wh">barbername</p>
-            </div>
-        </div>
-        </at-button></center><br><br>
-        
-    </div> 
+<div class="mrt-10">
+    
+    ชื่อ : <br><br>
+    เพศ : <br><br>
+    เบอร์โทร : <br><br>
+    ร้าน : <br><br>
+    เวลา : <br><br>
+    <center><button @click="$router.push('/listbar')" type="submit" class=" box-brown shadow pd-6 wh circle full-width" >ยกเลิกคิว</button></center>
+    </div>
 </template>
 
     <script>
+    import { get } from "vuex-pathify";
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
@@ -31,7 +26,7 @@ props:{
     /*-------------------------DataVarible---------------------------------------*/
     data() {
     return {
-
+        
         };
     }, 
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -45,7 +40,7 @@ props:{
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed:{
-
+        user:get('login/user')
 },
     /*-------------------------Methods------------------------------------------*/
 methods:{

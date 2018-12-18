@@ -1,37 +1,36 @@
  <!----------Make By YourName---------------->
 <template>
     <div>
-    <br><a @click="$router.push('/barregis')" class="icon icon-chevron-left"></a>
-     <label>ลงทะเบียนร้านตัดผม</label><br><br> 
-    ชื่อร้าน : <at-input v-model="inputValue" placeholder="ชื่อร้าน" style="width:100px"></at-input><br>
-    เบอร์โทร : <at-input v-model="inputValue" placeholder="เบอร์โทร" style="width:100px"></at-input><br>
-    ที่ตั้งร้าน : <at-textarea v-model="inputValue" placeholder="ที่ตั้งร้าน" style="width:200px"></at-textarea><br>
-    วันปิดทำการ : <at-checkbox-group v-model="checkboxcloseday">
-        <at-checkbox label="จันทร์">จ.</at-checkbox>
-        <at-checkbox label="อังการ">อ.</at-checkbox>
-        <at-checkbox label="พุธ">พ.</at-checkbox>
-        <at-checkbox label="พฤหัสบดี">พฤ.</at-checkbox>
-        <at-checkbox label="ศุกร์">ศ.</at-checkbox>
-        <at-checkbox label="เสาร์">ส.</at-checkbox>
-        <at-checkbox label="อาทิตย์">อา.</at-checkbox>
-    </at-checkbox-group><br>
-    ตัวเลือกในร้าน : <at-select v-model="model2" style="width:100px" placeholder="เลือกรายการ">
-        <at-option value="ตัดผม">ตัดผม</at-option>
-        <at-option value="สระผม" disabled>สระผม</at-option>
-        <at-option value="ทำสีผม" disabled>ทำสีผม</at-option>
-        <at-option value="ดัดผม" disabled>ดัดผม</at-option>
-        <at-option value="อบไอน้ำ" disabled>อบไอน้ำ</at-option>
-    </at-select><br><br>  
-    เวลาทำต่อหัว :
-    <at-input-group v-model="inputprice">
-        <at-input v-model="inputValue" placeholder="ชาย" style="width:60px"></at-input> นาที
-        <at-input v-model="inputValue" placeholder="ราคา" style="width:60px"></at-input> บาท<br>
-        <at-input v-model="inputValue" placeholder="หญิง" style="width:60px"></at-input> นาที
-        <at-input v-model="inputValue" placeholder="ราคา" style="width:60px"></at-input> บาท<br>
-    </at-input-group>
-    <div class="row">
-        <at-button type="primary" icon="icon-plus"></at-button>
-    </div><br>
+    <br><center>
+     <h1>ลงทะเบียนร้านตัดผม</h1></center><br><br>
+     <form v-on:submit.prevent="barberdetail()" class="pd-40">
+        ชื่อร้าน : <input v-model="form.registration_name" type="text" placeholder="ชื่อร้าน" class="at-input__original" required><br>
+        เบอร์โทร : <input v-model="form.registration_number" type="text" placeholder="เบอร์โทร" class="at-input__original" required><br>
+        ที่ตั้งร้าน : <textarea v-model="form.registration_address" type="text" placeholder="ที่ตั้งร้าน" class="at-input__original" required></textarea><br>
+        วันปิดทำการ : &nbsp;<checkbox  class="at-checkbox_" type="checkbox" required>
+        <input type="checkbox" value="จ.">
+		<label>จ.</label>&nbsp;
+		<input type="checkbox"  value="อ.">
+		<label>อ.</label>&nbsp;
+		<input type="checkbox" value="พ.">
+		<label>พ.</label>&nbsp;
+		<input type="checkbox" value="พฤ.">
+		<label>พฤ.</label>&nbsp;
+		<input type="checkbox" value="ศ.">
+		<label>ศ.</label>&nbsp;
+		<input type="checkbox" value="ส.">
+		<label>ส.</label>&nbsp;
+		<input type="checkbox" value="อา.">
+		<label>อา.</label>&nbsp;
+    </checkbox><br><br>
+    เวลาเปิด : <input v-model="form.registration_timeopen" class="at-input__original" style="width:100px" type="time" required>
+    เวลาปิด : <input v-model="form.registration_timeclose" class="at-input__original" style="width:100px" type="time" required><br><br>
+    เวลาตัดผมต่อหัว :
+        <input v-model="form.manu_timemale" placeholder="ชาย" class="at-input__original" style="width:60px" required> นาที
+        <input v-model="form.manu_timefemale" placeholder="ราคา" class="at-input__original" style="width:60px" required> บาท<br>
+        <input v-model="form.manu_pricemale" placeholder="หญิง" class="at-input__original" style="width:60px" required> นาที
+        <input v-model="form.manu_pricefemale" placeholder="ราคา" class="at-input__original" style="width:60px" required> บาท<br><br>
+
     รูปโปรไฟล์ :<image-uploader
     :debug="1"
     :maxWidth="512"
@@ -41,16 +40,23 @@
     :preview=false
     accept="image/*"
     doNotResize="['gif', 'svg']"
+    v-model="registration_profile"
     ></image-uploader><br>
     
 
-    <at-button class="box-brown shadow">ลงทะเบียน</at-button><br><br>
-    <at-button  @click="$router.push('/barlogin')" class="box shadow">ยกเลิก</at-button><br>
+
+    <center><button type="submit" class=" box-brown shadow pd-6 wh circle full-width" >ลงทะเบียน</button></center>
+
+    </form> 
+    <br>
+
+    <center><button  @click="$router.push('/barlogin')" class="box red shadow pd-6 wh circle full-width" >ยกเลิก</button></center><br>
     
     </div>
 </template>
  
      <script>
+     import { get } from "vuex-pathify"; 
  export default {
      name: 'Root',
      /*-------------------------Load Component---------------------------------------*/
@@ -64,7 +70,7 @@
      /*-------------------------DataVarible---------------------------------------*/
      data() {
      return {
- 
+         form:{},
          };
      }, 
      /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -78,10 +84,17 @@
      },
      /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
      computed:{
- 
+        user:get('user/user'),
  },
      /*-------------------------Methods------------------------------------------*/
  methods:{
+     barberdetail:async function(){
+
+         console.log('barberdetail form',this.form);
+         
+         this.$router.replace('/DataBarbershop');
+
+     },
      /******* Methods default run ******/
      load:async function(){
  }

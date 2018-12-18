@@ -1,37 +1,40 @@
  <!----------Make By YourName---------------->
   <template>
  <div>
-    <h1>แก้ไขข้อมูลส่วนตัว</h1>
+
+     <center><h1 class="mrt-20">ข้อมูลส่วนตัว</h1></center>
+   
+              <h2 class="mrl-20">ชื่อผู้ใช้ : {{user.username}}</h2>
+     <h2 class="mrl-20">อีเมล์ : {{user.email}}</h2><br>
+
+้<hr>
+ <center><h1 class="mrt-20">แก้ไขข้อมูลร้าน</h1></center>
+    <form v-on:submit.prevent="storeData()" class="pd-40">
+
+        ชื่อร้าน : <input v-model="form.registration_name" type="text" placeholder="ชื่อร้าน" class="at-input__original" required><br>
+        เบอร์โทร : <input v-model="form.registration_number" type="text" placeholder="เบอร์โทร" class="at-input__original" required><br>
+        ที่ตั้งร้าน : <textarea v-model="form.registration_address" type="text" placeholder="ที่ตั้งร้าน" class="at-input__original" required></textarea><br>
+        วันปิดทำการ : &nbsp; 
+
+    <at-select   v-model="form.registration_closedate" required>
+        <at-option  value="จ.">จ.</at-option >
+           <at-option tion value="อ.">อ.</at-option>
+              <at-option  value="พ.">พ.</at-option >
+                 <at-option  value="พฤ.">พฤ.</at-option >
+                    <at-option  value="ศ.">ศ.</at-option >
+                       <at-option  value="ส.">ส.</at-option >
+                          <at-option  value="อา.">อา.</at-option >
+    </at-select >
+ 
     
-    ชื่อร้าน : <at-input v-model="inputValue" placeholder="ชื่อร้าน" style="width:100px"></at-input><br>
-    เบอร์โทร : <at-input v-model="inputValue" placeholder="เบอร์โทร" style="width:100px"></at-input><br>
-    ที่ตั้งร้าน : <at-textarea v-model="inputValue" placeholder="ที่ตั้งร้าน" style="width:200px"></at-textarea><br>
-    วันปิดทำการ : <at-checkbox-group v-model="checkboxcloseday">
-        <at-checkbox label="จันทร์">จ.</at-checkbox>
-        <at-checkbox label="อังการ">อ.</at-checkbox>
-        <at-checkbox label="พุธ">พ.</at-checkbox>
-        <at-checkbox label="พฤหัสบดี">พฤ.</at-checkbox>
-        <at-checkbox label="ศุกร์">ศ.</at-checkbox>
-        <at-checkbox label="เสาร์">ส.</at-checkbox>
-        <at-checkbox label="อาทิตย์">อา.</at-checkbox>
-    </at-checkbox-group><br>
-    ตัวเลือกในร้าน : <at-select v-model="model2" style="width:100px" placeholder="เลือกรายการ">
-        <at-option value="ตัดผม">ตัดผม</at-option>
-        <at-option value="สระผม" disabled>สระผม</at-option>
-        <at-option value="ทำสีผม" disabled>ทำสีผม</at-option>
-        <at-option value="ดัดผม" disabled>ดัดผม</at-option>
-        <at-option value="อบไอน้ำ" disabled>อบไอน้ำ</at-option>
-    </at-select><br><br>  
-    เวลาทำต่อหัว :
-    <at-input-group v-model="inputprice">
-        <at-input v-model="inputValue" placeholder="ชาย" style="width:60px"></at-input> นาที<br>
-        <at-input v-model="inputValue" placeholder="ราคา" style="width:60px"></at-input> บาท
-        <at-input v-model="inputValue" placeholder="หญิง" style="width:60px"></at-input> นาที<br>
-        <at-input v-model="inputValue" placeholder="ราคา" style="width:60px"></at-input> บาท
-    </at-input-group>
-    <div class="row">
-        <at-button type="primary" icon="icon-plus"></at-button>
-    </div><br>
+    เวลาเปิด : <input v-model="form.registration_timeopen" class="at-input__original" style="width:100px" type="time" required>
+    เวลาปิด : <input v-model="form.registration_timeclose" class="at-input__original" style="width:100px" type="time" required><br><br>
+    เวลาตัดผมต่อหัว :
+        <input v-model="form.manu_timemale" placeholder="ชาย" class="at-input__original" style="width:60px" required> นาที
+        <input v-model="form.manu_timefemale" placeholder="ราคา" class="at-input__original" style="width:60px" required> บาท<br>
+        <input v-model="form.manu_pricemale" placeholder="หญิง" class="at-input__original" style="width:60px" required> นาที
+        <input v-model="form.manu_pricefemale" placeholder="ราคา" class="at-input__original" style="width:60px" required> บาท<br><br>
+
     รูปโปรไฟล์ :<image-uploader
     :debug="1"
     :maxWidth="512"
@@ -41,16 +44,18 @@
     :preview=false
     accept="image/*"
     doNotResize="['gif', 'svg']"
+    v-model="registration_profile"
     ></image-uploader><br>
 
-    <at-button  @click="$router.push('/DataBarbershop')" class="box shadow">บันทึกข้อมูล</at-button><br>
+    <button  @click="$router.push('/DataBarbershop')" class="box shadow pd-6 circle full-widt">บันทึกข้อมูล</button><br>
 
-
+    </form>
 </div>
      
  </template>
  
      <script>
+     	import { get } from "vuex-pathify"; 
  export default {
      name: 'Root',
      /*-------------------------Load Component---------------------------------------*/
@@ -64,7 +69,8 @@
      /*-------------------------DataVarible---------------------------------------*/
      data() {
      return {
- 
+         form:{},
+         update:false,
          };
      }, 
      /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -78,12 +84,40 @@
      },
      /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
      computed:{
- 
+         user:get('login/user')
  },
      /*-------------------------Methods------------------------------------------*/
  methods:{
+    
+     //Store data to vuex --post
+      storeData: async function () {
+          if(!this.update){
+          this.form.barber_id = this.user.id;
+          this.$store.dispatch('barber/storeData',this.form);}
+          else{
+              this.updateData();
+          }
+            this.load();
+     },
+     //Update data to vuex --put
+     updateData: async function () {
+      this.$store.dispatch('barber/updateData',this.form);
+        this.load();
+     },
+       //Delete data to vuex --delete
+     destroyData: async function (params) {
+     
+      },
      /******* Methods default run ******/
      load:async function(){
+         let data = await this.$store.dispatch('barber/getData',this.user.id);
+         if(data){
+             this.form = data;
+             this.update = true;
+         }else{
+             this.update = false;
+         }
+         console.log(data);
  }
  },
      }

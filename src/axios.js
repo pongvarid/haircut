@@ -1,7 +1,7 @@
 import Axios from "axios"
 
 
-const VUE_APP_API_URL = "http://192.168.1.25:8089"
+const VUE_APP_API_URL = "http://10.94.34.36:8089"
 
 
 const axios = Axios.create({
